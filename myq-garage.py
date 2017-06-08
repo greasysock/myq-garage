@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 
 ## Python to interface with MyQ garage doors.
 ## Thanks to xKing for the new API stuff. Find him on the UDI Forums.
@@ -48,7 +48,6 @@ try:
     from xml.etree import cElementTree as ElementTree
 except ImportError as e:
     from xml.etree import ElementTree
-requests.packages.urllib3.disable_warnings()
 
 config = RawConfigParser()
 config.read('config.ini')
@@ -267,7 +266,7 @@ class MyQ:
         req=self.session.post(self.authurl, headers=self.headers, json=payload)
 
         if (req.status_code != requests.codes.ok):
-            print "Login err code: " + req.status_code
+            print("Login err code: " + req.status_code)
             sys.exit(-1)
         
         res = req.json()
@@ -303,7 +302,7 @@ class MyQ:
         req = self.session.put(self.seturl, headers=self.headers, params=payload, data=post_data)
 
         if (req.status_code != requests.codes.ok):
-            print "Enum err code: " + req.status_code
+            print("Enum err code: " + req.status_code)
             return -1
 
         res = req.json()
@@ -328,7 +327,7 @@ class MyQ:
         req = self.session.get(self.enumurl, headers=self.headers, params=payload)
 
         if (req.status_code != requests.codes.ok):
-            print "Enum err code: " + req.status_code
+            print("Enum err code: " + req.status_code)
             return -1
 
         res = req.json()
