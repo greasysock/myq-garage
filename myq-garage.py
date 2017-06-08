@@ -275,7 +275,7 @@ class MyQ:
             self.securitytoken = res["SecurityToken"]
             self.save_token()
         else: 
-            print "Authentication Failed"
+            print("Authentication Failed")
             sys.exit(-1)
     
 
