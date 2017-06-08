@@ -308,10 +308,10 @@ class MyQ:
         res = req.json()
         
         if (res["ReturnCode"] == "0"):
-            print "status changed"
+            print("status changed")
             return True
         else:    
-            print "Can't set state, bad token?"
+            print("Can't set state, bad token?")
             return False
               
     def get_doors(self):
